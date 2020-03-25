@@ -22,6 +22,15 @@
   align-items: center;
 }
 
+.header-text {
+  color: black;
+  font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.warning {
+  color: red;
+}
+
 .box {
   margin: 1em;
   width: 100%;

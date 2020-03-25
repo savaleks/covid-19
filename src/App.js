@@ -42,7 +42,7 @@ export default class App extends React.Component {
   }
 
   async getCountryData(e) {
-    if(e.target.value === "Worldwide"){
+    if(e.target.value === "Pasaulyje"){
       return this.getData();
     }
     try {
@@ -68,29 +68,30 @@ export default class App extends React.Component {
     })
   }
 
-  render() {
-    
+  render() { 
     return ( 
       <div className="container"> 
-        <h1>Corona Virus Online</h1>
-        <h4>Warning: the data can be inaccurate.</h4>
-
-        <select className="dropdown" onChange={this.getCountryData}>
-          <option>Worldwide</option>
-          {this.renderCountryOptions()}
-        </select>
+        <h1 className="header-text">Koronovirusas online</h1>
+        <br/>
+        <div>
+        <p></p>
+          <select className="dropdown" onChange={this.getCountryData}>
+            <option>Pasaulyje</option>
+            {this.renderCountryOptions()}
+          </select>
+        </div>
 
         <div className="flexbox">
           <div className="box confirmed">
-            <h2>Confirmed cases</h2>
+            <h2>Užsikrėtusiųjų skaičius</h2>
             <h3>{this.state.confirmed}</h3>
           </div>
           <div className="box recovered">
-          <h2>Recovered cases</h2>
+          <h2>Išgijusiųju skaičius</h2>
             <h3>{this.state.recovered}</h3>
           </div>
           <div className="box deaths">
-          <h2>Deaths</h2>
+          <h2>Mirusiųju skaičius</h2>
             <h3>{this.state.deaths}</h3>
           </div>
         </div>
