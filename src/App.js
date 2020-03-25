@@ -1,6 +1,7 @@
 import React from 'react';
 import './App.css';
 import Axios from "axios";
+import picture from "./img/covid-19.png";
 
 export default class App extends React.Component {
 
@@ -74,7 +75,6 @@ export default class App extends React.Component {
         <h1 className="header-text">Koronovirusas online</h1>
         <br/>
         <div>
-        <p></p>
           <select className="dropdown" onChange={this.getCountryData}>
             <option>Pasaulyje</option>
             {this.renderCountryOptions()}
@@ -95,6 +95,7 @@ export default class App extends React.Component {
             <h3>{this.state.deaths}</h3>
           </div>
         </div>
+        <img className="picture" src={picture} alt="corona-virus"></img>
       </div>
     )
   }
