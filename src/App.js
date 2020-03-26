@@ -3,6 +3,8 @@ import './App.css';
 import Axios from "axios";
 import Moment from "react-moment";
 import 'moment/locale/lt';
+import NotificationBadge from "react-notification-badge";
+import {Effect} from 'react-notification-badge';
 import picture from "./img/covid-19.png";
 
 export default class App extends React.Component {
@@ -55,7 +57,8 @@ export default class App extends React.Component {
       this.setState({
         confirmed: res.data.confirmed.value,
         recovered: res.data.recovered.value,
-        deaths: res.data.deaths.value
+        deaths: res.data.deaths.value,
+        lastUpdate: res.data.lastUpdate
       });
     } catch (error) {
         if(error.response.status === 404)
