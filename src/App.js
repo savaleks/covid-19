@@ -1,6 +1,8 @@
 import React from 'react';
 import './App.css';
 import Axios from "axios";
+import Moment from "react-moment";
+import 'moment/locale/lt';
 import picture from "./img/covid-19.png";
 
 export default class App extends React.Component {
@@ -14,6 +16,7 @@ export default class App extends React.Component {
     confirmed: 0,
     recovered: 0,
     deaths: 0,
+    lastUpdate: 0,
     countries: []
   };
 
@@ -38,7 +41,8 @@ export default class App extends React.Component {
     this.setState({
       confirmed: resApi.data.confirmed.value,
       recovered: resApi.data.recovered.value,
-      deaths: resApi.data.deaths.value
+      deaths: resApi.data.deaths.value,
+      lastUpdate: resApi.data.lastUpdate
     });
   }
 
@@ -73,7 +77,10 @@ export default class App extends React.Component {
     return ( 
       <div className="container"> 
         <h1 className="header-text">Koronovirusas online</h1>
-        <br/>
+        <div className="box update">
+            <h4>Paskutinis atnaujinimas</h4>
+            <Moment fromNow>{this.state.lastUpdate}</Moment>
+          </div>
         <div>
           <select className="dropdown" onChange={this.getCountryData}>
             <option>Pasaulyje</option>
