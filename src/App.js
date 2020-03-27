@@ -5,7 +5,8 @@ import Moment from "react-moment";
 import 'moment/locale/lt';
 import NotificationBadge from "react-notification-badge";
 import {Effect} from 'react-notification-badge';
-import picture from "./img/covid-19.png";
+import symptoms from "./img/symtoms.png";
+import symptoms2 from "./img/symtoms2.png";
 
 export default class App extends React.Component {
 
@@ -105,7 +106,7 @@ export default class App extends React.Component {
             <h3>{this.state.deaths}</h3>
           </div>
         </div>
-        <img className="picture" src={picture} alt="corona-virus"></img>
+        <img className="picture" src={symptoms} alt="corona-virus"></img>
       </div>
     )
   }

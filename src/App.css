@@ -47,9 +47,9 @@
 }
 
 .picture {
-  width: 30%;
-  height: auto;
-  opacity: 0.2;
+  width: auto ;
+  max-width: 100% ;
+  height: auto ;
 }
 
 .dropdown {
@@ -61,5 +61,8 @@
 @media screen and (min-width: 800px) {
   .flexbox {
     flex-wrap: nowrap;
+  }
+  .picture {
+    width: 70%;
   }
 }
