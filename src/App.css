@@ -11,17 +11,32 @@
   text-align: center !important;
 }
 
+.namelt {
+  margin: auto;
+  width: 100px;
+}
+
+.lt {
+  background-color: #d4130d;
+  border-radius: 30px;
+  padding: 0.5em;
+}
+
 .flexbox {
   display: flex;
   justify-content: space-evenly;
   flex-wrap: wrap;
-  min-height: 30vh;
+  min-height: 20vh;
   align-items: center;
 }
 
 .header-text {
   color: black;
   font-family: Verdana, Geneva, Tahoma, sans-serif;
+}
+
+.update {
+  margin: 1em;
 }
 
 .box {
@@ -44,6 +59,12 @@
 .box.deaths {
   border: 1px solid red;
   background: tomato
+}
+
+.simptomai {
+  margin: 1em;
+  font-family: sans-serif;
+  color: red;
 }
 
 .picture {

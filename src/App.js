@@ -5,8 +5,9 @@ import Moment from "react-moment";
 import 'moment/locale/lt';
 import NotificationBadge from "react-notification-badge";
 import {Effect} from 'react-notification-badge';
-import symptoms from "./img/symtoms.png";
-import symptoms2 from "./img/symtoms2.png";
+import covid1 from "./img/covid4.png";
+import covid2 from "./img/covid6.png";
+
 
 export default class App extends React.Component {
 
@@ -20,7 +21,10 @@ export default class App extends React.Component {
     recovered: 0,
     deaths: 0,
     lastUpdate: 0,
-    countries: []
+    countries: [],
+    confirmedLt: 0,
+    recoveredLt: 0,
+    deathsLt: 0
   };
 
   componentDidMount() {
@@ -40,12 +44,16 @@ export default class App extends React.Component {
 
   async getData() {
     const resApi = await Axios.get("https://covid19.mathdro.id/api");
+    const resLt  = await Axios.get("https://covid19.mathdro.id/api/countries/lt");
 
     this.setState({
       confirmed: resApi.data.confirmed.value,
       recovered: resApi.data.recovered.value,
       deaths: resApi.data.deaths.value,
-      lastUpdate: resApi.data.lastUpdate
+      lastUpdate: resApi.data.lastUpdate,
+      confirmedLt: resLt.data.confirmed.value,
+      recoveredLt: resLt.data.recovered.value,
+      deathsLt: resLt.data.deaths.value
     });
   }
 
@@ -80,8 +88,8 @@ export default class App extends React.Component {
   render() { 
     return ( 
       <div className="container"> 
-        <h1 className="header-text">Koronovirusas online</h1>
-        <div className="box update">
+        <h1 className="header-text">Koronovirusas LIVE</h1>
+        <div className="update">
             <h4>Paskutinis atnaujinimas</h4>
             <Moment fromNow>{this.state.lastUpdate}</Moment>
           </div>
@@ -103,17 +111,27 @@ export default class App extends React.Component {
           <div className="box confirmed">
             <h2>Užsikrėtusiųjų skaičius</h2>
             <h3>{this.state.confirmed}</h3>
+            <NotificationBadge count={this.state.confirmedLt} effect={Effect.SCALE}/>
           </div>
           <div className="box recovered">
           <h2>Išgijusiųju skaičius</h2>
             <h3>{this.state.recovered}</h3>
+            <NotificationBadge count={this.state.recoveredLt} effect={Effect.SCALE}/>
           </div>
           <div className="box deaths">
           <h2>Mirusiųju skaičius</h2>
             <h3>{this.state.deaths}</h3>
+            <NotificationBadge count={this.state.deathsLt} effect={Effect.SCALE}/>
           </div>
         </div>
-        <img className="picture" src={symptoms} alt="corona-virus"></img>
+        <div className="namelt">
+          <h3 className="lt">Lietuva</h3>
+        </div>
+        <div>
+        <h2 className="simptomai">Koronaviruso simptomai:</h2>
+          <img className="picture1" src={covid1} alt="corona-virus1"></img>
+          <img className="picture2" src={covid2} alt="corona-virus2"></img>
+        </div>
       </div>
     )
   }
