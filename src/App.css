@@ -20,6 +20,7 @@
   background-color: #d4130d;
   border-radius: 30px;
   padding: 0.5em;
+  color: white;
 }
 
 .flexbox {
@@ -64,7 +65,7 @@
 .simptomai {
   margin: 1em;
   font-family: sans-serif;
-  color: red;
+  color: black;
 }
 
 .picture {
@@ -85,5 +86,5 @@
   }
   .picture {
     width: 70%;
-  }
+  } 
 }

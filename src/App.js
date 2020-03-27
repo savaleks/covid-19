@@ -7,7 +7,7 @@ import NotificationBadge from "react-notification-badge";
 import {Effect} from 'react-notification-badge';
 import covid1 from "./img/covid4.png";
 import covid2 from "./img/covid6.png";
-
+import Blink from "react-blink-text";
 
 export default class App extends React.Component {
 
@@ -88,7 +88,10 @@ export default class App extends React.Component {
   render() { 
     return ( 
       <div className="container"> 
-        <h1 className="header-text">Koronovirusas LIVE</h1>
+      
+        <h1 className="header-text">Koronovirusas
+         <Blink color='red' text='LIVE' fontSize='20'></Blink>
+        </h1>
         <div className="update">
             <h4>Paskutinis atnaujinimas</h4>
             <Moment fromNow>{this.state.lastUpdate}</Moment>
@@ -128,6 +131,7 @@ export default class App extends React.Component {
           <h3 className="lt">Lietuva</h3>
         </div>
         <div>
+        <br/>
         <h2 className="simptomai">Koronaviruso simptomai:</h2>
           <img className="picture1" src={covid1} alt="corona-virus1"></img>
           <img className="picture2" src={covid2} alt="corona-virus2"></img>
