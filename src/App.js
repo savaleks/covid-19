@@ -89,7 +89,7 @@ export default class App extends React.Component {
     return ( 
       <div className="container"> 
       
-        <h1 className="header-text">Koronovirusas
+        <h1 className="header-text">Koronavirusas
          <Blink color='red' text='LIVE' fontSize='20'></Blink>
         </h1>
         <div className="update">
